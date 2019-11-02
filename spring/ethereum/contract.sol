@@ -34,4 +34,8 @@ contract BCMess{
         require(users[msg.sender].isUser==true, "Invalid User");
         _;
     }
+
+    function getTrustLevel(address user) public view onlyMember returns(int) {
+        return users[user].trustLevel;
+    }
 }
