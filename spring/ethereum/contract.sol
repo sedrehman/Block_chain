@@ -2,7 +2,7 @@ pragma solidity ^0.5.11;
 
 contract BCMess{
     event sendMessageEvent(address indexed from, address indexed to,bytes message, bytes32 encryption);
-    event profileUpdateEvent(address indexed from, bytes32 name)
+    event profileUpdateEvent(address indexed from, bytes32 name);
 
     struct User {
         uint messageStartBlock;
