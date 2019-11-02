@@ -20,7 +20,7 @@ contract BCMess{
     }
 
     function join(bytes32 publicKeyLeft, bytes32 publicKeyRight) public onlyMember {
-        require(users[msg.sender].isUser==false);
+        require(users[msg.sender].isUser==false, "Already a user.");
         User memory newUser = User(0, true, 5, publicKeyLeft, publicKeyRight, "");
         users[msg.sender] = newUser;
     }
@@ -31,7 +31,7 @@ contract BCMess{
     }
 
     modifier onlyMember(){
-        require(users[msg.sender].isUser==true);
+        require(users[msg.sender].isUser==true, "Invalid User");
         _;
     }
 }
