@@ -8,7 +8,8 @@ contract BCMess{
         uint messageStartBlock;
         bool isUser;
         int trustLevel;
-        bytes32 publicKey;
+        bytes32 publicKeyLeft;
+        bytes32 publicKeyRight;
         bytes32 name;
     }
 
@@ -19,14 +20,14 @@ contract BCMess{
     }
 
     function join(bytes32 publicKeyLeft, bytes32 publicKeyRight) public onlyMember {
-        require(members[msg.sender].isMember==false);
-        User memory newUser= User(publicKeyLeft, publicKeyRight, "", "", 0, true);
-        users[msg.sender]=newUser;
+        require(users[msg.sender].isUser==false);
+        User memory newUser = User(0, true, 5, publicKeyLeft, publicKeyRight, "");
+        users[msg.sender] = newUser;
     }
 
     function updateProfile(bytes32 name, bytes32 avatarUrl) public onlyMember {
         users[msg.sender].name = name;
-        emit profileUpdateEvent(msg.sender, name, avatarUrl);
+        emit profileUpdateEvent(msg.sender, name);
     }
 
     modifier onlyMember(){
