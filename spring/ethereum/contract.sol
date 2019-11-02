@@ -25,7 +25,7 @@ contract BCMess{
         users[msg.sender] = newUser;
     }
 
-    function updateProfile(bytes32 name, bytes32 avatarUrl) public onlyMember {
+    function updateProfile(bytes32 name) public onlyMember {
         users[msg.sender].name = name;
         emit profileUpdateEvent(msg.sender, name);
     }
