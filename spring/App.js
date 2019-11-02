@@ -2,10 +2,13 @@
 import React from 'react';
 import {
   View,
+  ScrollView
 } from 'react-native';
 import {
   Input
 } from 'react-native-elements';
+import {LinearGradient} from 'react-native-linear-gradient'
+
 
 import Post from './sections/Post'
 
